@@ -1,0 +1,19 @@
+LOCATION='switzerlandnorth'
+
+az deployment sub create \
+  --name Deployment-$(date +"%Y-%m-%dT%H-%M-%S") \
+  --location $LOCATION \
+  --template-file resource-group.bicep \
+  --parameters \
+    location=$LOCATION \
+    stage=dev
+
+LOCATION='switzerlandnorth'
+
+az deployment group create \
+  --name Deployment-$(date +"%Y-%m-%dT%H-%M-%S") \
+  --resource-group 'rg-aszend-dev' \
+  --template-file storage.bicep \
+  --parameters \
+    location=$LOCATION \
+    stage=dev

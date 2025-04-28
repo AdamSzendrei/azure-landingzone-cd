@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.34.44.8038",
+      "templateHash": "5352172472300070847"
+    }
+  },
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "switzerlandnorth",
+      "metadata": {
+        "description": "The location of the resource group."
+      }
+    },
+    "stage": {
+      "type": "string",
+      "defaultValue": "dev"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2024-11-01",
+      "name": "[format('rg-aszend-{0}', parameters('stage'))]",
+      "location": "[parameters('location')]",
+      "tags": {
+        "stage": "[parameters('stage')]",
+        "project": "course-management",
+        "hidden-title": "Course Management"
+      }
+    }
+  ]
+}
