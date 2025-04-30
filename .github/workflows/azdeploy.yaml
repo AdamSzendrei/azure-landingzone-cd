@@ -41,3 +41,4 @@ jobs:
           --parameters \
             location=switzerlandnorth \
             stage=dev   
+            

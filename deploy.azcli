@@ -33,3 +33,11 @@ az deployment group create \
     user1=$USER1 \
     user2=$USER2 \
     stage=dev
+
+ASSIGNMENT_ID='/subscriptions/0d447244-a7a4-4532-bee4-ad55c8f628f4/resourcegroups/rg-aszend-dev/providers/microsoft.authorization/policyassignments/b7499e0ec90f48c6b3b231c8'
+
+az deployment group create \
+    --name "policy-exemption-deployment" \
+    --resource-group "rg-aszend-dev" \
+    --template-file "exemption.bicep" \
+    --parameters policyAssignmentId="$ASSIGNMENT_ID"

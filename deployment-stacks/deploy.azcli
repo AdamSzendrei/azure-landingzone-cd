@@ -1,0 +1,10 @@
+az stack sub create \
+    --name Deployment-$(date +"%Y-%m-%dT%H-%M-%S") \
+    --location westeurope \
+    --template-file main.bicep \
+    --action-on-unmanage 'deleteAll' \
+    --deny-settings-mode 'none' \
+    --yes \
+    --parameters \
+      adminPassword=let-me-query-that-for-you~1
+
